@@ -12,20 +12,20 @@
                 This site is a simple <a href="https://www.torproject.org/">TOR</a> relay on the web.
             </p>
             <p>
-                Submit a website and our server will fetch the website using Tor.
+                Submit a website and our server will fetch the website using TOR.
             </p>
 
             <h5>What is Tor?</h5>
             <p>
-                Tor is free software and an open network that helps you defend against traffic analysis,
+                TOR is free software and an open network that helps you defend against traffic analysis,
                 a form of network surveillance that threatens personal freedom and privacy, confidential
                 business activities and relationships, and state security.
             </p>
 
             <h5>Is this site anonymous?</h5>
             <p>
-                No because you are accessing our server (torelay.com) without using TOR we see your IP.
-                However, the website being retrieved will be fetched under TOR so they won't see who you are.
+                No because you are accessing our server (torelay.com) without using TOR so we see your real IP.
+                However, the website you are retrieving will be fetched under TOR so they won't see your IP.
             </p>
 
             <h5>Is there a quick way to access the website?</h5>
