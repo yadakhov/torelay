@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-8 col-xs-offset-2">
+        <div class="col-lg-8 col-lg-offset-2">
             <h1><a class="" href="{{ env('APP_URL') }}">TORelay.com</a></h1>
 
             <h5>About</h5>
