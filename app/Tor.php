@@ -172,36 +172,6 @@ class Tor
         return [$response, $ch];
     }
 
-    public function guzzle($url)
-    {
-
-    }
-
-
-    public function getIndeedJobCount($data)
-    {
-        if (empty($data)) {
-            return false;
-        }
-
-        $regex = '#\<div id="searchCount"\>(.+?)\<\/div\>#s';
-        preg_match($regex, $data, $matches);
-
-        if (empty($matches[0])) {
-            return false;
-        }
-
-        $match = $matches[0];
-
-        // parse text such as "<div id="searchCount">Jobs 1 to 10 of 248,859</div>
-        $match = str_replace('</div>', '', $match);
-        $positionOf = strpos($match, 'of');
-        $number = substr($match, $positionOf+3);  // get text after the 'of'
-        $number = str_replace(',', '', $number);
-
-        return (int)$number;
-    }
-
     /**
      * Get a radmom header
      *
