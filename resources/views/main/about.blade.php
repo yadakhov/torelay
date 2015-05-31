@@ -35,9 +35,9 @@
             <h5>Is there a quick way to access the website?</h5>
             <p>
                 Type this in your browser address bar:
-                <pre>http://torelay.com?url=THEURL</pre>
+                <pre>https://torelay.com?url=THEURL</pre>
                 For command line you can use curl. Example:
-                <pre>curl http://torelay.com?url=http://api.ipify.org?format=json</pre>
+                <pre>curl https://torelay.com?url=http://api.ipify.org?format=json</pre>
             </p>
 
             <h5>Is this site open source?</h5>
