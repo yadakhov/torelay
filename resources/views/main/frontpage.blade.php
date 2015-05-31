@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
+        <div class="col-lg-6 col-lg-offset-3">
             <h1><a class="" href="{{ env('APP_URL') }}">TORelay.com</a></h1>
             <form class="form-horizontal" action="{{ url('/') }}" method="GET">
                 <div class="input-group">

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Yada Khov">
     <meta name="description" content="A simple TOR Relay.  Accessing TOR over the cloud.  No need to install a TOR server.">
-    <meta name="keywords" content="tor relay, anonymity online, tor, tor project, censorship circumvention, traffic analysis, anonymous communications research">
+    <meta name="keywords" content="tor, tor relay, ip blocking circumvention, tor online, tor project, censorship circumvention, traffic analysis, communications research">
 
     <title>torelay - A simple TOR Relay</title>
 
@@ -26,6 +26,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="{{ url('/js/app.js') }}"></script>
+@if (env('APP_ENV') === 'production')
 @include('_includes.analytics')
+@endif
 </body>
 </html>
