@@ -31,3 +31,7 @@ sudo vi /etc/tor/torrc
 ControlPort 9051
 sudo service tor restart
 ```
+
+## TOR
+This product is produced independently from the Tor anonymity software and carries no guarantee from
+The Tor Project about quality, suitability or anything else

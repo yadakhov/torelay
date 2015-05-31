@@ -15,17 +15,21 @@
                 Submit a website and our server will fetch the website using TOR.
             </p>
 
-            <h5>What is Tor?</h5>
+            <h5>Is this site anonymous?</h5>
+            <p>
+                No because you are accessing our server (torelay.com) without using TOR so we see your real IP.
+                However, the website you are retrieving will be fetched under TOR so they won't see your IP.
+            </p>
+
+            <h5>What is TOR?</h5>
             <p>
                 TOR is free software and an open network that helps you defend against traffic analysis,
                 a form of network surveillance that threatens personal freedom and privacy, confidential
                 business activities and relationships, and state security.
             </p>
-
-            <h5>Is this site anonymous?</h5>
             <p>
-                No because you are accessing our server (torelay.com) without using TOR so we see your real IP.
-                However, the website you are retrieving will be fetched under TOR so they won't see your IP.
+                This product is produced independently from the Tor® anonymity software and carries no guarantee
+                fromThe Tor Project about quality, suitability or anything else.
             </p>
 
             <h5>Is there a quick way to access the website?</h5>
