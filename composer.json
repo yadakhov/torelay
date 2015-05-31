@@ -1,8 +1,8 @@
 {
     "name": "yadakhov/torelay",
     "description": "A simple tor relay.",
-    "keywords": ["framework", "laravel", "lumen"],
-    "license": "DOLLARDOLLARBILL",
+    "keywords": ["tor", "framework", "laravel", "lumen"],
+    "license": "MIT",
     "type": "project",
     "require": {
         "laravel/lumen-framework": "5.0.*",
