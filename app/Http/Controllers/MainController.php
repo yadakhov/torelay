@@ -50,6 +50,7 @@ class MainController extends Controller
         }
 
         $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        unset($ch);
 
         if (empty($statusCode)) {
             $statusCode = '200';

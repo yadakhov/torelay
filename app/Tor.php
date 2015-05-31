@@ -142,7 +142,7 @@ class Tor
         $auth = 'PASSWORD';
         $command = 'signal NEWNYM';
 
-        $fp = fsockopen($ip, $port, $error_number, $err_string, 10);
+        $fp = fsockopen($ip, $port, $error_number, $err_string, 2);
         if (!$fp) {
             echo "ERROR: $error_number : $err_string";
 
