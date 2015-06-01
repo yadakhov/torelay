@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-6 col-lg-offset-3">
+        <div class="col-lg-8 col-lg-offset-2">
             <h1><a class="" href="{{ env('APP_URL') }}">TORelay.com</a></h1>
             <form class="form-horizontal" action="{{ url('/') }}" method="GET">
                 <div class="input-group">
@@ -16,7 +16,7 @@
             </form>
             <div style="padding-top: 30px;">
                 <a href="{{ url('/about') }}">about</a>
-
+                <br><br>
                 <h6>Run from the command line:</h6>
                 <pre>curl https://torelay.com?url=https://ipnumber.info/?format=json</pre>
             </div>
