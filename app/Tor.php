@@ -158,7 +158,9 @@ class Tor
 
         $ch = curl_init();
 
-        $headers = $this->getRandomHeader();
+        $headers = [
+            $this->getUserAgent(),  // $this->getUserAgent(true) for random
+        ];
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_PROXY, '127.0.0.1:9050');
@@ -173,13 +175,19 @@ class Tor
     }
 
     /**
-     * Get a radmom header
+     * Get a user agent
      *
-     * @return array
+     * @param bool $random
+     * @return string
      */
-    public function getRandomHeader()
+    public function getUserAgent($random = false)
     {
+        if ($random === false) {
+            return 'Mozilla/5.0 (Windows NT 6.1; rv:31.0) Gecko/20100101 Firefox/31.0';
+        }
+
         $headers = [
+            'Mozilla/5.0 (Windows NT 6.1; rv:31.0) Gecko/20100101 Firefox/31.0',
             'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
             'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36',
             'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36',
@@ -190,9 +198,7 @@ class Tor
 
         $randomKey = array_rand($headers);
 
-        return [
-            $headers[$randomKey]
-        ];
+        return $headers[$randomKey];
     }
 
 }
