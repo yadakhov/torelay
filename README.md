@@ -32,7 +32,7 @@ ControlPort 9051
 sudo service tor restart
 ```
 
-## The web server User 'www-data' needs sudo
+## The web server user 'www-data' needs sudo
 This may weaken your security.  A good idea is to run your webserver as another other than www-data
 ```
 sudo visudo
@@ -43,4 +43,4 @@ www-data ALL = NOPASSWD : ALL
 
 ## TOR
 This product is produced independently from the Tor anonymity software and carries no guarantee from
-The Tor Project about quality, suitability or anything else
+The Tor Project about quality, suitability or anything else.
