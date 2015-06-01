@@ -37,7 +37,7 @@
                 Type this in your browser address bar:
                 <pre>https://torelay.com?url=THEURL</pre>
                 For command line you can use curl. Example:
-                <pre>curl https://torelay.com?url=http://api.ipify.org?format=json</pre>
+                <pre>curl https://torelay.com?url=https://ipnumber.info/?format=json</pre>
             </p>
 
             <h5>Is this site open source?</h5>
