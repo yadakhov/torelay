@@ -16,6 +16,9 @@
             </form>
             <div style="padding-top: 30px;">
                 <a href="{{ url('/about') }}">about</a>
+
+                <h6>Run from the command line:</h6>
+                <pre>curl https://torelay.com?url=https://ipnumber.info/?format=json</pre>
             </div>
         </div>
     </div>
