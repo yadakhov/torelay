@@ -86,6 +86,10 @@ sudo ln -s /etc/nginx/sites-available/torelay  /etc/nginx/sites-enabled/torelay
 
 # restart nginx server and php5-fpm
 sudo service nginx restart
+# You should see OK for the last command or you screwed up
+# To view nginx log do the following
+tail -f /var/log/nginx/error.log
+
 sudo service php5-fpm restart
 ```
 
