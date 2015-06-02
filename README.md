@@ -12,7 +12,7 @@ The Lumen framework has a few system requirements:
 - Mbstring PHP Extension
 - Tokenizer PHP Extension
 
-## Install nginx websever on ubuntu based system
+## Installing nginx websever on ubuntu based system
 ```bash
 sudo apt get update
 sudo apt get upgrade
