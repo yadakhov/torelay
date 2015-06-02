@@ -12,7 +12,7 @@ The Lumen framework has a few system requirements:
 - Mbstring PHP Extension
 - Tokenizer PHP Extension
 
-## install nginx websever on ubuntu based system
+## Install nginx websever on ubuntu based system
 ```bash
 sudo apt get update
 sudo apt get upgrade
@@ -78,6 +78,9 @@ server {
         deny all;
     }
 }
+
+# save and exit
+
 # symlink conf to sites-enabled folder
 sudo ln -s /etc/nginx/sites-available/torelay  /etc/nginx/sites-enabled/torelay
 
@@ -86,18 +89,14 @@ sudo service nginx restart
 sudo service php5-fpm restart
 ```
 
-## for local http://torelay.app url to work  
+## For local http://torelay.app url to work  
 ```
 sudo pico /etc/hosts
+# add this line
 127.0.0.1       torelay.app
 ```
 
-## server need to run sudo without password
-sudo visudo
-www-data ALL = NOPASSWD : ALLL
-
 ## Install TOR on your machine
-```
 ```bash
 sudo apt-get install tor
 # TOR configurations
