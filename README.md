@@ -31,15 +31,15 @@ cd ~/www
 git clone https://github.com/yadakhov/torelay
 cd torelay
 composer install
-# storage folder needs to be writable by the webser
-chmod o+w -R storage
+# storage folder needs to be writable by the web server
+sudo chmod o+w -R storage
 
 # nginx virtual host
 cd /etc/nginx/sites-available/
 sudo touch torelay
 sudo pico torelay
 
-# copy and paste nginx configurations.
+# Copy and paste nginx configurations. Change USERNAME to your account username. 
 server {
     listen 80;
     server_name torelay.app;
