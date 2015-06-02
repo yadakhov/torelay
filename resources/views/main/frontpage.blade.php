@@ -14,7 +14,7 @@
                     </span>
                 </div>
             </form>
-            <div style="padding-top: 100px;">
+            <div style="padding-top: 40px;">
                 <a href="{{ url('/about') }}">about</a>
             </div>
         </div>
