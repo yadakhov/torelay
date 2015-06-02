@@ -116,7 +116,7 @@ sudo rcconf
 ```
 
 ## The web server user 'www-data' needs sudo
-This may weaken your security.  A good idea is to run your webserver as another other than www-data
+This may weaken your security.  A good idea is to run your webserver as another user other than www-data
 ```
 sudo visudo
 # Add the following end of file:
