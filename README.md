@@ -33,6 +33,10 @@ cd torelay
 composer install
 # storage folder needs to be writable by the web server
 sudo chmod o+w -R storage
+# configurations
+cp .env.example .env
+# change configurations
+pico .env
 
 # nginx virtual host
 cd /etc/nginx/sites-available/
