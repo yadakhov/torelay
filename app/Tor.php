@@ -165,6 +165,7 @@ class Tor
         curl_setopt($ch, CURLOPT_VERBOSE, 0);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_USERAGENT, $this->getUserAgent());  // $this->getUserAgent(true) for random);
+        curl_setopt($ch, CURLOPT_ENCODING , 'gzip');
         $response = curl_exec($ch);
 
         return [$response, $ch];
