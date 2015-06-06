@@ -25,9 +25,9 @@ curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 
 # clone the clone codebase
-cd
+cd ~
 mkdir www
-cd ~/www
+cd www
 git clone https://github.com/yadakhov/torelay
 cd torelay
 composer install
@@ -35,13 +35,13 @@ composer install
 sudo chmod o+w -R storage
 # configurations
 cp .env.example .env
-# change configurations
-pico .env
+# change configurations to match your server
+nano .env
 
 # nginx virtual host
 cd /etc/nginx/sites-available/
 sudo touch torelay
-sudo pico torelay
+sudo nano torelay
 
 # Copy and paste nginx configurations. Change USERNAME to your account username. 
 server {
@@ -99,7 +99,7 @@ sudo service php5-fpm restart
 
 ## For local http://torelay.app url to work  
 ```
-sudo pico /etc/hosts
+sudo nano /etc/hosts
 # add this line
 127.0.0.1       torelay.app
 ```
@@ -108,7 +108,7 @@ sudo pico /etc/hosts
 ```bash
 sudo apt-get install tor
 # TOR configurations
-sudo pico /etc/tor/torrc
+sudo nano /etc/tor/torrc
 # Make sure you have this line
 RunAsDaemon 1
 ControlPort 9051
