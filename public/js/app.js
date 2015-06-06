@@ -20,7 +20,7 @@ $(function() {
             $('#url').val('');
         }
     });
-    // defaults to http://whatismyip.org
+    // defaults
     $('#url').blur(function() {
         var url = $('#url').val();
         if (url === '') {
