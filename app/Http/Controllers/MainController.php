@@ -83,8 +83,6 @@ class MainController extends Controller
                     'src="./',
                     "src='./",
 
-                    '<iframe src="http://torelay.app?url=',
-
                     '</html>',
                 ],
                 [
@@ -108,8 +106,6 @@ class MainController extends Controller
                     "href='".$torGetUrl.$domainUrlPath,
                     'src="'.$torGetUrl.$domainUrlPath,
                     "src='".$torGetUrl.$domainUrlPath,
-
-                    '<iframe src="',
 
                     $analytics
                 ],
