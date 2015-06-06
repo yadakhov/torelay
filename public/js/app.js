@@ -16,7 +16,7 @@ $(function() {
 
     $('#url').focus(function() {
         var url = $('#url').val();
-        if (url === 'https://ipnumber.info') {
+        if (url === 'http://mxtoolbox.com/WhatIsMyIP') {
             $('#url').val('');
         }
     });
@@ -24,7 +24,7 @@ $(function() {
     $('#url').blur(function() {
         var url = $('#url').val();
         if (url === '') {
-            $('#url').val('https://ipnumber.info');
+            $('#url').val('http://mxtoolbox.com/WhatIsMyIP');
         }
     });
 

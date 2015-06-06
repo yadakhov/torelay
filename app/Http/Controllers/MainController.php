@@ -17,7 +17,7 @@ class MainController extends Controller
         $url = $request->input('url');
 
         if (empty($url)) {
-            return view('main.frontpage', ['url' => 'https://ipnumber.info']);
+            return view('main.frontpage', ['url' => 'http://mxtoolbox.com/WhatIsMyIP']);
         }
 
         if (starts_with($url, '//')) {
