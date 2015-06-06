@@ -75,11 +75,15 @@ class MainController extends Controller
                     "href='/",
                     'src="/',
                     "src='/",
+                    'action="/',
+                    "action='/",
 
                     'href="./',
                     "href='./",
                     'src="./',
                     "src='./",
+
+                    '<iframe src="http://torelay.app?url=',
 
                     '</html>',
                 ],
@@ -97,11 +101,15 @@ class MainController extends Controller
                     "href='".$torGetUrl.$domainUrl.'/',
                     'src="'.$torGetUrl.$domainUrl.'/',
                     "src='".$torGetUrl.$domainUrl.'/',
+                    'action="'.$torGetUrl.$domainUrl.'/',
+                    "action='".$torGetUrl.$domainUrl.'/',
 
                     'href="'.$torGetUrl.$domainUrlPath,
                     "href='".$torGetUrl.$domainUrlPath,
                     'src="'.$torGetUrl.$domainUrlPath,
                     "src='".$torGetUrl.$domainUrlPath,
+
+                    '<iframe src="',
 
                     $analytics
                 ],
