@@ -197,5 +197,4 @@ class Tor
 
         return $headers[$randomKey];
     }
-
 }

@@ -55,7 +55,7 @@ $app->singleton(
 |
 */
 $app->middleware([
-    'Illuminate\Session\Middleware\StartSession',
+//    'Illuminate\Session\Middleware\StartSession',
 //    'Illuminate\View\Middleware\ShareErrorsFromSession',
 //    'Illuminate\Cookie\Middleware\EncryptCookies',
 //    'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',

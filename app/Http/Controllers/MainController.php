@@ -8,7 +8,6 @@ use App\Tor;
 
 class MainController extends Controller
 {
-
     /**
      * Front page
      *
@@ -126,5 +125,4 @@ class MainController extends Controller
     {
         return view('main.about');
     }
-
 }
