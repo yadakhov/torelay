@@ -1,5 +1,8 @@
-<?php namespace App\Http\Controllers;
+<?php
 
+namespace App\Http\Controllers;
+
+use Laravel\Lumen\Routing\Controller as Controller;
 use Illuminate\Http\Request;
 use App\Tor;
 
