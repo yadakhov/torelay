@@ -1,16 +1,13 @@
 {
     "name": "yadakhov/torelay",
-    "description": "A simple tor relay.",
-    "keywords": ["tor", "framework", "laravel", "lumen"],
+    "description": "A simple tor relay website torelay.com",
+    "keywords": ["tor", "framework", "lumen"],
     "license": "MIT",
     "type": "project",
     "require": {
         "laravel/lumen-framework": "5.0.*",
-        "illuminate/redis": "^5.0",
-        "predis/predis": "1.0.*",
-        "mikehaertl/php-shellcommand": "1.0.*",
-        "guzzlehttp/guzzle": "6.0.*",
-        "vlucas/phpdotenv": "~1.0"
+        "vlucas/phpdotenv": "~1.0",
+        "yadakhov/tor": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0"

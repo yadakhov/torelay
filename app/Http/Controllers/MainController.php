@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as Controller;
 use Illuminate\Http\Request;
-use App\Tor;
+use Yadakhov\Tor;
 
 class MainController extends Controller
 {
@@ -19,7 +19,7 @@ class MainController extends Controller
         $url = $request->input('url');
 
         if (empty($url)) {
-            return view('main.frontpage', ['url' => 'http://mxtoolbox.com/WhatIsMyIP']);
+            return view('main.frontpage', ['url' => 'https://ipnumber.info']);
         }
 
         if (starts_with($url, '//')) {
@@ -32,10 +32,9 @@ class MainController extends Controller
         }
 
         $tor = new Tor();
-        list($content, $ch) = $tor->curl($url);
+        $tor->newIp();
 
-        // store current $url
-        session('url', $url);
+        list($content, $ch) = $tor->curl($url);
 
         $parseUrl = parse_url($url);;
         $domainUrl = $parseUrl['scheme'].'://'.$parseUrl['host'];
@@ -83,8 +82,6 @@ class MainController extends Controller
                     "href='./",
                     'src="./',
                     "src='./",
-
-                    '</html>',
                 ],
                 [
                     'href="'.$torGetUrl.'http',

@@ -11,12 +11,4 @@ class TestCase extends Laravel\Lumen\Testing\TestCase
     {
         return require __DIR__.'/../bootstrap/app.php';
     }
-
-    /**
-     * Need a test to get rid of warning
-     */
-    public function test()
-    {
-
-    }
 }
