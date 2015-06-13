@@ -31,6 +31,12 @@ class MainController extends Controller
             $url = 'http://'.$url;
         }
 
+        // Don't use Tor if the url is in the white list
+        if ($this->isWhiteListUrl($url)) {
+            $content = file_get_contents($url);
+            return response($content);
+        }
+
         $tor = new Tor();
         $tor->newIp();
 
@@ -119,4 +125,31 @@ class MainController extends Controller
     {
         return view('main.about');
     }
+
+    /**
+     * Return true if the url is a white listed
+     */
+    private function isWhiteListUrl($url)
+    {
+        // store url as the key in the array to take advantage of the hashmap O(1) lookup
+        $whiteList = [
+            'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' => true,
+            'http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js' => true,
+            'http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' => true,
+            'http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' => true,
+            'http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css' => true,
+            'http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js' => true,
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' => true,
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js' => true,
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' => true,
+            'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' => true,
+            'https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css' => true,
+            'https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js' => true,
+            'https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/readable/bootstrap.min.css' => true,
+            'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js' => true,
+        ];
+
+        return isset($whiteList['url']);
+    }
+
 }
