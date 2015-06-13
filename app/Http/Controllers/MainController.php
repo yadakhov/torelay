@@ -42,14 +42,6 @@ class MainController extends Controller
 
         list($content, $ch) = $tor->curl($url);
 
-        $parseUrl = parse_url($url);;
-        $domainUrl = $parseUrl['scheme'].'://'.$parseUrl['host'];
-        $path = isset($parseUrl['path']) ? $parseUrl['path'] : '';
-        $domainUrlPath = $parseUrl['scheme'].'://'.$parseUrl['host'].$path;
-
-        // for injecting src and href
-        $torGetUrl = env('APP_URL').'?url=';
-
         $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
 
         if (empty($contentType)) {
@@ -64,66 +56,10 @@ class MainController extends Controller
         }
 
         if (strpos($contentType, 'html') !== false) {
-
-            // inject torelay http
-            $content = str_replace(
-                [
-                    'href="http',
-                    "href='http",
-                    'href="//',
-                    "href='//",
-                    'src="http',
-                    "src='http",
-                    'src="//',
-                    "src='//",
-
-                    'href="/',
-                    "href='/",
-                    'src="/',
-                    "src='/",
-                    'action="/',
-                    "action='/",
-
-                    'href="./',
-                    "href='./",
-                    'src="./',
-                    "src='./",
-                ],
-                [
-                    'href="'.$torGetUrl.'http',
-                    "href='".$torGetUrl.'http',
-                    'href="'.$torGetUrl.'//',
-                    "href='".$torGetUrl.'//',
-                    'src="'.$torGetUrl.'http',
-                    "src='".$torGetUrl.'http',
-                    'src="'.$torGetUrl.'https://',
-                    "src='".$torGetUrl.'https//',
-
-                    'href="'.$torGetUrl.$domainUrl.'/',
-                    "href='".$torGetUrl.$domainUrl.'/',
-                    'src="'.$torGetUrl.$domainUrl.'/',
-                    "src='".$torGetUrl.$domainUrl.'/',
-                    'action="'.$torGetUrl.$domainUrl.'/',
-                    "action='".$torGetUrl.$domainUrl.'/',
-
-                    'href="'.$torGetUrl.$domainUrlPath,
-                    "href='".$torGetUrl.$domainUrlPath,
-                    'src="'.$torGetUrl.$domainUrlPath,
-                    "src='".$torGetUrl.$domainUrlPath,
-                ],
-                $content
-            );
+            $this->injectTorelayUrl($url, $content);
         }
 
         return response($content, $statusCode, ['Content-Type' => $contentType]);
-    }
-
-    /**
-     * The about page
-     */
-    public function about()
-    {
-        return view('main.about');
     }
 
     /**
@@ -150,6 +86,80 @@ class MainController extends Controller
         ];
 
         return isset($whiteList['url']);
+    }
+
+    /**
+     * Inject torelay url
+     * <a href="http://example.com"> will become <a href="https://torelay.comm?url=http://example.com">
+     *
+     * @param $url
+     * @param $content
+     */
+    private function injectTorelayUrl($url, &$content)
+    {
+        $torGetUrl = env('APP_URL').'?url=';
+        $parseUrl = parse_url($url);;
+        $domainUrl = $parseUrl['scheme'].'://'.$parseUrl['host'];
+        $path = isset($parseUrl['path']) ? $parseUrl['path'] : '';
+        $domainUrlPath = $parseUrl['scheme'].'://'.$parseUrl['host'].$path;
+
+        // inject torelay http
+        $content = str_replace(
+            [
+                'href="http',
+                "href='http",
+                'href="//',
+                "href='//",
+                'src="http',
+                "src='http",
+                'src="//',
+                "src='//",
+
+                'href="/',
+                "href='/",
+                'src="/',
+                "src='/",
+                'action="/',
+                "action='/",
+
+                'href="./',
+                "href='./",
+                'src="./',
+                "src='./",
+            ],
+            [
+                'href="'.$torGetUrl.'http',
+                "href='".$torGetUrl.'http',
+                'href="'.$torGetUrl.'//',
+                "href='".$torGetUrl.'//',
+                'src="'.$torGetUrl.'http',
+                "src='".$torGetUrl.'http',
+                'src="'.$torGetUrl.'https://',
+                "src='".$torGetUrl.'https//',
+
+                'href="'.$torGetUrl.$domainUrl.'/',
+                "href='".$torGetUrl.$domainUrl.'/',
+                'src="'.$torGetUrl.$domainUrl.'/',
+                "src='".$torGetUrl.$domainUrl.'/',
+                'action="'.$torGetUrl.$domainUrl.'/',
+                "action='".$torGetUrl.$domainUrl.'/',
+
+                'href="'.$torGetUrl.$domainUrlPath,
+                "href='".$torGetUrl.$domainUrlPath,
+                'src="'.$torGetUrl.$domainUrlPath,
+                "src='".$torGetUrl.$domainUrlPath,
+            ],
+            $content
+        );
+    }
+
+
+    /**
+     * The about page
+     */
+    public function about()
+    {
+        return view('main.about');
     }
 
 }
