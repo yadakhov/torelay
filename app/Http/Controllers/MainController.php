@@ -60,7 +60,6 @@ class MainController extends Controller
 
         if (strpos($contentType, 'html') !== false) {
 
-            $analytics = view('_includes.analytics')->render().'</html>';
             // inject torelay http
             $content = str_replace(
                 [
@@ -108,8 +107,6 @@ class MainController extends Controller
                     "href='".$torGetUrl.$domainUrlPath,
                     'src="'.$torGetUrl.$domainUrlPath,
                     "src='".$torGetUrl.$domainUrlPath,
-
-                    $analytics
                 ],
                 $content
             );
