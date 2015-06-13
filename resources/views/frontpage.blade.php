@@ -14,9 +14,11 @@
                     </span>
                 </div>
             </form>
-            <div style="padding-top: 40px;">
+            <div class="about-panel">
                 <a href="{{ url('/about') }}">about</a>
+                <a href="{{ url('/about') }}"><img alt="Torelay will fetch your website using TOR." class="img-responsive" src="{{ url('/img/torelay.png') }}"></a>
             </div>
+
         </div>
     </div>
 </div>

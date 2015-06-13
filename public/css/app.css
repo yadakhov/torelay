@@ -10,3 +10,6 @@ h1 > a {
     color: inherit;
     text-decoration: none !important;
 }
+.about-panel {
+    padding-top: 40px;
+}

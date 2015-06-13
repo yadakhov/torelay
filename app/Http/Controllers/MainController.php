@@ -19,7 +19,7 @@ class MainController extends Controller
         $url = $request->input('url');
 
         if (empty($url)) {
-            return view('main.frontpage', ['url' => 'https://ipnumber.info']);
+            return view('frontpage', ['url' => 'https://ipnumber.info']);
         }
 
         if (starts_with($url, '//')) {
@@ -159,7 +159,7 @@ class MainController extends Controller
      */
     public function about()
     {
-        return view('main.about');
+        return view('about');
     }
 
 }
