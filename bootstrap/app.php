@@ -35,13 +35,13 @@ $app->withFacades();
 */
 
 $app->singleton(
-    'Illuminate\Contracts\Debug\ExceptionHandler',
-    'App\Exceptions\Handler'
+    Illuminate\Contracts\Debug\ExceptionHandler::class,
+    App\Exceptions\Handler::class
 );
 
 $app->singleton(
-    'Illuminate\Contracts\Console\Kernel',
-    'App\Console\Kernel'
+    Illuminate\Contracts\Console\Kernel::class,
+    App\Console\Kernel::class
 );
 
 /*
@@ -54,13 +54,14 @@ $app->singleton(
 | route or middleware that'll be assigned to some specific routes.
 |
 */
-$app->middleware([
-//    'Illuminate\Session\Middleware\StartSession',
-//    'Illuminate\View\Middleware\ShareErrorsFromSession',
-//    'Illuminate\Cookie\Middleware\EncryptCookies',
-//    'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
-//    'Laravel\Lumen\Http\Middleware\VerifyCsrfToken',
-]);
+
+// $app->middleware([
+//     // Illuminate\Cookie\Middleware\EncryptCookies::class,
+//     // Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+//     // Illuminate\Session\Middleware\StartSession::class,
+//     // Illuminate\View\Middleware\ShareErrorsFromSession::class,
+//     // Laravel\Lumen\Http\Middleware\VerifyCsrfToken::class,
+// ]);
 
 // $app->routeMiddleware([
 
@@ -77,7 +78,8 @@ $app->middleware([
 |
 */
 
-$app->register('App\Providers\AppServiceProvider');
+$app->register(App\Providers\AppServiceProvider::class);
+// $app->register(App\Providers\EventServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +92,8 @@ $app->register('App\Providers\AppServiceProvider');
 |
 */
 
-require __DIR__.'/../app/Http/routes.php';
+$app->group(['namespace' => 'App\Http\Controllers'], function ($app) {
+	require __DIR__.'/../app/Http/routes.php';
+});
 
 return $app;

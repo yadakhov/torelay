@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Laravel\Lumen\Routing\Controller as Controller;
 use Illuminate\Http\Request;
 use Yadakhov\Tor;
 
 class MainController extends Controller
 {
     /**
-     * Front page
+     * The Front Page
      *
      * @param Request $request
      * @return \Illuminate\View\View|\Laravel\Lumen\Http\ResponseFactory|\Symfony\Component\HttpFoundation\Response
@@ -63,7 +62,7 @@ class MainController extends Controller
     }
 
     /**
-     * Return true if the url is a white listed
+     * Return true if the url is white listed
      */
     private function isWhiteListUrl($url)
     {
@@ -161,5 +160,4 @@ class MainController extends Controller
     {
         return view('about');
     }
-
 }
