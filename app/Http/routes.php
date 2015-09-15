@@ -4,11 +4,11 @@
  * Routes
  */
 $app->get('/', [
-    'uses' => 'MainController@frontpage'
+    'uses' => 'MainController@frontpage',
 ]);
 
 $app->get('/about', [
-    'uses' => 'MainController@about'
+    'uses' => 'MainController@about',
 ]);
 
 $app->get('test', function () {

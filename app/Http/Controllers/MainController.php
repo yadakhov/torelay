@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace app\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Yadakhov\Tor;
@@ -8,9 +8,10 @@ use Yadakhov\Tor;
 class MainController extends Controller
 {
     /**
-     * The Front Page
+     * The Front Page.
      *
      * @param Request $request
+     *
      * @return \Illuminate\View\View|\Laravel\Lumen\Http\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
     public function frontpage(Request $request)
@@ -33,6 +34,7 @@ class MainController extends Controller
         // Don't use Tor if the url is in the white list
         if ($this->isWhiteListUrl($url)) {
             $content = file_get_contents($url);
+
             return response($content);
         }
 
@@ -62,26 +64,26 @@ class MainController extends Controller
     }
 
     /**
-     * Return true if the url is white listed
+     * Return true if the url is white listed.
      */
     private function isWhiteListUrl($url)
     {
         // store url as the key in the array to take advantage of the hashmap O(1) lookup
         $whiteList = [
-            'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' => true,
-            'http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js' => true,
-            'http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' => true,
-            'http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' => true,
-            'http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css' => true,
-            'http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js' => true,
-            'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' => true,
-            'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js' => true,
-            'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' => true,
-            'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' => true,
+            'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'               => true,
+            'http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'               => true,
+            'http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'               => true,
+            'http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'                => true,
+            'http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css'  => true,
+            'http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js'   => true,
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'              => true,
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'              => true,
+            'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'              => true,
+            'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'               => true,
             'https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css' => true,
-            'https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js' => true,
-            'https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/readable/bootstrap.min.css' => true,
-            'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js' => true,
+            'https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js'  => true,
+            'https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/readable/bootstrap.min.css'    => true,
+            'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'            => true,
         ];
 
         return isset($whiteList['url']);
@@ -89,7 +91,7 @@ class MainController extends Controller
 
     /**
      * Inject torelay url
-     * <a href="http://example.com"> will become <a href="https://torelay.comm?url=http://example.com">
+     * <a href="http://example.com"> will become <a href="https://torelay.comm?url=http://example.com">.
      *
      * @param $url
      * @param $content
@@ -97,7 +99,7 @@ class MainController extends Controller
     private function injectTorelayUrl($url, &$content)
     {
         $torGetUrl = env('APP_URL').'?url=';
-        $parseUrl = parse_url($url);;
+        $parseUrl = parse_url($url);
         $domainUrl = $parseUrl['scheme'].'://'.$parseUrl['host'];
         $path = isset($parseUrl['path']) ? $parseUrl['path'] : '';
         $domainUrlPath = $parseUrl['scheme'].'://'.$parseUrl['host'].$path;
@@ -152,9 +154,8 @@ class MainController extends Controller
         );
     }
 
-
     /**
-     * The about page
+     * The about page.
      */
     public function about()
     {

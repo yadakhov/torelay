@@ -1,9 +1,6 @@
 <?php
 
-namespace App\Listeners;
-
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+namespace app\Listeners;
 
 abstract class Listener
 {
