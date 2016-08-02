@@ -18,7 +18,7 @@ class MainController extends Controller
         $url = $request->input('url');
 
         if (empty($url)) {
-            return view('frontpage', ['url' => 'https://ipnumber.info']);
+            return view('frontpage', ['url' => 'https://www.whatismyip.com']);
         }
 
         if (starts_with($url, '//')) {
