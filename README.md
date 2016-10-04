@@ -1,4 +1,4 @@
-# [TORelay.com](https://torelay.com)
+# [TORelay.com](http://torelay.com)
 
 https://torelay.com
 
