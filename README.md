@@ -1,6 +1,6 @@
-# [TORelay.com](https://torelay.com)
+# [TORelay.com](http://torelay.com)
 
-https://torelay.com
+http://torelay.com
 
 A simple TOR relay app.
 
