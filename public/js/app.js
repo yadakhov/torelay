@@ -2,7 +2,7 @@ $(function() {
 
     $('#url').focus(function() {
         var url = $('#url').val();
-        if (url === 'https://www.whatismyip.com/') {
+        if (url === 'http://www.whatsmyip.org/') {
             $('#url').val('');
         }
     });
@@ -10,7 +10,7 @@ $(function() {
     $('#url').blur(function() {
         var url = $('#url').val();
         if (url === '') {
-            $('#url').val('https://www.whatismyip.com/');
+            $('#url').val('http://www.whatsmyip.org/');
         }
     });
 
